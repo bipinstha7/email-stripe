@@ -41,4 +41,9 @@ module.exports = app => {
 			res.status(422).send(error)
 		}
 	})
+
+	app.post('/api/surveys/webhooks', (req, res) => {
+		console.log('rrrrrr', req.body)
+		res.send({})
+	})
 }
