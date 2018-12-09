@@ -38,5 +38,5 @@ const mapStateToProps = state => ({
 
 export default connect(
 	mapStateToProps,
-	submitSurvey
+	{ submitSurvey }
 )(withRouter(SurveyFormReview))
