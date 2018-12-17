@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
+import SurveyForm from './SurveyForm'
 
-class SurverNew extends Component {
+class SurveyNew extends Component {
 	render() {
-		return <div>SurveyNew</div>
+		return (
+			<div>
+				<SurveyForm />
+			</div>
+		)
 	}
 }
 
-export default SurverNew
+export default SurveyNew
