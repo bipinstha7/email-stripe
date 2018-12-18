@@ -6,8 +6,7 @@ import { fetchUser } from '../actions/index'
 import Header from './Header'
 import Landing from './Landing'
 import Dashboard from './Dashboard'
-
-const SurveyNew = () => <h1>SurveyView</h1>
+import SurveyNew from './surveys/SurverNew'
 
 class App extends Component {
 	componentDidMount() {
