@@ -1,11 +1,22 @@
 {
-  "name": "email-stripe-server",
-  "version": "1.0.0",
-  "description": "Send bunch of emails with stripe based credit card payment",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
+	"name": "email-stripe-server",
+	"version": "1.0.0",
+	"description": "Send bunch of emails with stripe based credit card payment",
+	"main": "index.js",
+	"scripts": {
+		"lint": "eslint .",
+		"start": "nodemon index.js",
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"express": "^4.16.4"
+	},
+	"devDependencies": {
+		"eslint": "^5.13.0",
+		"eslint-config-airbnb": "^17.1.0",
+		"eslint-plugin-import": "^2.16.0",
+		"eslint-plugin-jsx-a11y": "^6.2.0",
+		"eslint-plugin-react": "^7.12.4"
+	}
 }
