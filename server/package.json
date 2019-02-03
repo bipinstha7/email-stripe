@@ -3,9 +3,14 @@
 	"version": "1.0.0",
 	"description": "Send bunch of emails with stripe based credit card payment",
 	"main": "index.js",
+	"engines": {
+		"node": "10.15.1",
+		"npm": "6.7.0"
+	},
 	"scripts": {
 		"lint": "eslint .",
-		"start": "nodemon index.js"
+		"start": "node index.js",
+		"server": "nodemon index.js"
 	},
 	"author": "",
 	"license": "ISC",
