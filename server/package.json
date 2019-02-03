@@ -4,8 +4,7 @@
 	"description": "Send bunch of emails with stripe based credit card payment",
 	"main": "index.js",
 	"engines": {
-		"node": "10.x",
-		"npm": "6.x"
+		"node": "10.x"
 	},
 	"scripts": {
 		"lint": "eslint .",
