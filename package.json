@@ -11,7 +11,7 @@
 		"start": "node index.js",
 		"server": "nodemon index.js"
 	},
-	"author": "",
+	"author": "bipin",
 	"license": "ISC",
 	"dependencies": {
 		"express": "^4.16.4"
