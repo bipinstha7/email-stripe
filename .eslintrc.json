@@ -1,0 +1,26 @@
+{
+	"extends": "airbnb",
+	"rules": {
+		"indent": ["error", "tab"],
+		"no-tabs": 0,
+		"semi": ["error", "never"],
+		"no-console": "off",
+		"no-unused-vars": 2,
+		"quotes": ["error", "single"],
+		"no-else-return": 2,
+		"no-empty-function": 2,
+		"no-eq-null": 2,
+		"no-eval": 2,
+		"comma-dangle": [
+			"error",
+			{
+				"arrays": "always",
+				"objects": "always",
+				"imports": "never",
+				"exports": "never",
+				"functions": "ignore"
+			}
+		],
+		"arrow-parens": ["error", "as-needed"]
+	}
+}
