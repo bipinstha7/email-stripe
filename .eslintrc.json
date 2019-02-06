@@ -11,16 +11,7 @@
 		"no-empty-function": 2,
 		"no-eq-null": 2,
 		"no-eval": 2,
-		"comma-dangle": [
-			"error",
-			{
-				"arrays": "always",
-				"objects": "always",
-				"imports": "never",
-				"exports": "never",
-				"functions": "ignore"
-			}
-		],
+		"comma-dangle": ["error", "never"],
 		"arrow-parens": ["error", "as-needed"]
 	}
 }
