@@ -14,6 +14,13 @@ passport.serializeUser((user, done) => {
 	done(null, user.id)
 })
 
+/* id === user.id from the serializeUser */
+passport.deserializeUser((id, done) => {
+	User.findById(id)
+		.then(user => done(null, user))
+		.catch(err => console.log('Error on deserialize user', err))
+})
+
 passport.use(
 	new GoogleStrategy(
 		{
