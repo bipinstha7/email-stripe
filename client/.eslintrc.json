@@ -20,7 +20,8 @@
 		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
 		"react/jsx-indent": [2, "tab"],
 		"react/jsx-one-expression-per-line": [0, { "allow": "single-child" }],
-		"space-before-function-paren": ["error", "never"]
+		"space-before-function-paren": ["error", "never"],
+		"react/destructuring-assignment": [0, "always", { "ignoreClassFields": true }]
 	},
 	"parserOptions": {
 		"ecmaFeatures": {
