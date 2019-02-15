@@ -6,11 +6,19 @@ class Header extends Component {
 	renderContent() {
 		switch (this.props.auth) {
 			case null:
-				return 'Still Deciding'
+				return
 			case false:
-				return 'I am loggedout'
+				return (
+					<li>
+						<a href="/auth/google">Login With Google</a>
+					</li>
+				)
 			default:
-				return 'I am Logged in'
+				return (
+					<li>
+						<a href="">Logout</a>
+					</li>
+				)
 		}
 	}
 
