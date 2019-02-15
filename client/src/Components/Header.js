@@ -1,6 +1,19 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 class Header extends Component {
+	renderContent() {
+		switch (this.props.auth) {
+			case null:
+				return 'Still Deciding'
+			case false:
+				return 'I am loggedout'
+			default:
+				return 'I am Logged in'
+		}
+	}
+
 	render() {
 		return (
 			<nav>
@@ -9,9 +22,10 @@ class Header extends Component {
 						Emaily
 					</a>
 					<ul className="right">
-						<li>
+						{this.renderContent()}
+						{/* <li>
 							<a href="">Login With Google</a>
-						</li>
+						</li> */}
 					</ul>
 				</div>
 			</nav>
@@ -19,4 +33,22 @@ class Header extends Component {
 	}
 }
 
-export default Header
+Header.propTypes = {
+	auth: PropTypes.oneOfType([
+		PropTypes.shape({
+			_id: PropTypes.string,
+			googleId: PropTypes.string
+		}),
+		PropTypes.bool
+	])
+}
+
+Header.defaultProps = {
+	auth: false
+}
+
+const mapStateToProps = state => ({
+	auth: state.auth
+})
+
+export default connect(mapStateToProps)(Header)
