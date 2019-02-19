@@ -32,7 +32,7 @@ module.exports = app => {
 
 			res.sed(user)
 		} catch (error) {
-			res.status(422).send(err)
+			res.status(422).send(error)
 		}
 	})
 }
