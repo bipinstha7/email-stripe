@@ -1,8 +1,8 @@
 {
 	"env": {
-        "browser": true,
-        "node": true
-    },
+		"browser": true,
+		"node": true
+	},
 	"extends": "airbnb",
 	"rules": {
 		"indent": ["error", "tab"],
@@ -17,6 +17,15 @@
 		"no-eq-null": 2,
 		"no-eval": 2,
 		"comma-dangle": ["error", "never"],
-		"arrow-parens": ["error", "as-needed"]
+		"arrow-parens": ["error", "as-needed"],
+		"object-curly-newline": [
+			"error",
+			{
+				"ObjectExpression": "always",
+				"ObjectPattern": { "multiline": true },
+				"ImportDeclaration": "never",
+				"ExportDeclaration": { "multiline": true, "minProperties": 3 }
+			}
+		]
 	}
 }
