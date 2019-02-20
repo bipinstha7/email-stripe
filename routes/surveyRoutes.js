@@ -31,7 +31,7 @@ module.exports = app => {
 				subject: 'Sending with SendGrid is Fun',
 				html: `${surveyTemplate(survey)}`
 			}
-			sgMail.sendMultiple(msg)
+			await sgMail.sendMultiple(msg)
 
 			req.user.credits -= 1
 			const user = await req.user.save()
