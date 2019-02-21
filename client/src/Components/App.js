@@ -5,8 +5,8 @@ import { fetchUser } from '../actions/index'
 
 import Header from './Header'
 import Landing from './Landing'
+import Dashboard from './Dashboard'
 
-const Dashboard = () => <h1>Dashboard</h1>
 const SurveyNew = () => <h1>SurveyView</h1>
 
 class App extends Component {
