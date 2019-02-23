@@ -11,8 +11,10 @@ const Survey = require('../models/Survey')
 const keys = require('../config/keys')
 
 module.exports = app => {
-	app.get('/api/surveys', (req, res) => {
-		Survey.find({_user: req.user})
+	app.get('/api/surveys', requireLogin, async (req, res) => {
+		const surveys = await Survey.find({ _user: req.user.id })
+
+		res.send(surveys)
 	})
 
 	app.get('/api/surveys/:surveyId/:choice', (req, res) => {
