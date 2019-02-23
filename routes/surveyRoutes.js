@@ -6,6 +6,7 @@ const { uniqBy } = require('lodash')
 const requireLogin = require('../middlewares/requireLogin')
 const requireCredits = require('../middlewares/requireCredits')
 const surveyTemplate = require('../services/emailTemplates/surveyTemplate')
+const Survey = require('../models/Survey')
 
 const keys = require('../config/keys')
 
@@ -63,6 +64,20 @@ module.exports = app => {
 		const compactEvents = events.filter(event => event !== undefined)
 		const uniqueEvents = uniqBy(compactEvents, 'email', 'surveyId')
 
+		uniqueEvents.map(({ email, surveyId, choice }) => {
+			Survey.updateOne({
+				_id: surveyId,
+				recipients: {
+					$elemMatch: {email: email, responded: false}
+				}
+			},
+			{
+				$inc: {[choice]: 1},
+				$set: {'recipients.$.responded': true}
+			}
+			).exec()
+		})
 
+		res.send({})
 	})
 }
