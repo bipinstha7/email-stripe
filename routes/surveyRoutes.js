@@ -2,11 +2,13 @@ const sgMail = require('@sendgrid/mail')
 const Path = require('path-parser')
 const { URL } = require('url')
 const { uniqBy } = require('lodash')
+const mongoose = require('mongoose')
 
 const requireLogin = require('../middlewares/requireLogin')
 const requireCredits = require('../middlewares/requireCredits')
 const surveyTemplate = require('../services/emailTemplates/surveyTemplate')
-const Survey = require('../models/Survey')
+
+const Survey = mongoose.model('Survey')
 
 const keys = require('../config/keys')
 
@@ -42,7 +44,7 @@ module.exports = app => {
 				html: `${surveyTemplate(survey)}`
 			}
 			await sgMail.sendMultiple(msg)
-
+			await Survey.create(survey)
 			req.user.credits -= 1
 			const user = await req.user.save()
 
@@ -71,17 +73,18 @@ module.exports = app => {
 		const uniqueEvents = uniqBy(compactEvents, 'email', 'surveyId')
 
 		uniqueEvents.map(({ email, surveyId, choice }) => {
-			Survey.updateOne({
-				_id: surveyId,
-				recipients: {
-					$elemMatch: {email: email, responded: false}
+			Survey.updateOne(
+				{
+					_id: surveyId,
+					recipients: {
+						$elemMatch: { email: email, responded: false }
+					}
+				},
+				{
+					$inc: { [choice]: 1 },
+					$set: { 'recipients.$.responded': true },
+					lastResponded: new Date()
 				}
-			},
-			{
-				$inc: {[choice]: 1},
-				$set: {'recipients.$.responded': true},
-				lastResponded: new Date()
-			}
 			).exec()
 		})
 
