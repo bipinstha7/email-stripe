@@ -1,6 +1,7 @@
 const sgMail = require('@sendgrid/mail')
 const Path = require('path-parser')
 const { URL } = require('url')
+const { uniqBy } = require('lodash')
 
 const requireLogin = require('../middlewares/requireLogin')
 const requireCredits = require('../middlewares/requireCredits')
@@ -58,5 +59,8 @@ module.exports = app => {
 				}
 			}
 		})
+
+		const compactEvents = events.filter(event => event !== undefined)
+		const uniqueEvents = uniqBy(compactEvents, 'email', 'surveyId')
 	})
 }
