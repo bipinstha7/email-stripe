@@ -23,7 +23,8 @@
 		"react/jsx-one-expression-per-line": [0, { "allow": "single-child" }],
 		"space-before-function-paren": ["error", "never"],
 		"react/destructuring-assignment": [0, "always", { "ignoreClassFields": true }],
-		"object-curly-newline": ["error", "never"]
+		"object-curly-newline": ["error", "never"],
+		"react/display-name": ["disabled"]
 	},
 	"parserOptions": {
 		"ecmaFeatures": {
