@@ -9,6 +9,7 @@ module.exports = app => {
 		})
 	)
 
+	/* redirect to home page after successful google oauth authentication */
 	app.get('/auth/google/callback', passport.authenticate('google'), (req, res) => {
 		res.redirect('/')
 	})
