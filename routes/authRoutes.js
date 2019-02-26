@@ -1,6 +1,7 @@
 const passport = require('passport')
 
 module.exports = app => {
+	/* access google auth api to get the user's profile and email */
 	app.get(
 		'/auth/google',
 		passport.authenticate('google', {
