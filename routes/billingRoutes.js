@@ -13,7 +13,7 @@ module.exports = app => {
 				source: req.body.id
 			})
 
-			/* user data stores in req.user by passport */
+			/* user data stores in req.user by passport middleware */
 			req.user.credits += 5
 			const user = await req.user.save()
 
