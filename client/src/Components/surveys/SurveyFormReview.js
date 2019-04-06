@@ -6,14 +6,12 @@ import formFields from './formFields'
 import { submitSurvey } from '../../actions/index'
 
 const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
-	const reviewFields = formFields.map(({ label, name }) => {
-		return (
-			<div key={name}>
-				<label>{label}</label>
-				<div>{formValues[name]}</div>
-			</div>
-		)
-	})
+	const reviewFields = formFields.map(({ label, name }) => (
+		<div key={name}>
+			<label>{label}</label>
+			<div>{formValues[name]}</div>
+		</div>
+	))
 
 	return (
 		<div>
@@ -32,9 +30,7 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
 	)
 }
 
-const mapStateToProps = state => ({
-	formValues: state.form.surveyForm.values
-})
+const mapStateToProps = state => ({ formValues: state.form.surveyForm.values })
 
 export default connect(
 	mapStateToProps,
